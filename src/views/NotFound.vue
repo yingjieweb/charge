@@ -32,24 +32,6 @@
 </script>
 
 <style scoped>
-  .top_link {
-    height: 50px;
-    width: 150px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  .top_link a {
-    text-decoration: none;
-    display: block;
-    height: 50px;
-    width: 150px;
-  }
-
-  .top_link a:hover {
-    text-decoration: none;
-  }
-
   .sorry {
     height: 530px;
     background-image: url(http://www.qijishow.com/img/sorry.jpg);
@@ -64,25 +46,5 @@
     line-height: 460px;
     padding-top: 338px;
     padding-left: 332px;
-  }
-
-  .statistics {
-    width: 950px;
-    margin-right: auto;
-    margin-left: auto;
-    height: 15px;
-    font-family: Verdana;
-    font-size: 11px;
-    color: #ecedef;
-    text-align: right;
-  }
-
-  .statistics a {
-    color: #ecedef;
-    text-decoration: none;
-  }
-
-  .statistics a:hover {
-    text-decoration: none;
   }
 </style>
