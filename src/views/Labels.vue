@@ -1,6 +1,7 @@
 <template>
   <div>
     labels
+    <TabBar></TabBar>
   </div>
 </template>
 

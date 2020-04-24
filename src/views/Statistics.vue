@@ -1,6 +1,7 @@
 <template>
   <div>
     statistics
+    <TabBar></TabBar>
   </div>
 </template>
 
