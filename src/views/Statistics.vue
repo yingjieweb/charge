@@ -1,13 +1,24 @@
 <template>
-  <div>
-    statistics
-    <TabBar></TabBar>
-  </div>
+  <Layout>
+    <template v-slot:nav>
+      <div>
+        Statistics navigator
+      </div>
+    </template>
+    <template v-slot:content>
+      Statistics 页面
+    </template>
+  </Layout>
 </template>
 
 <script>
   export default {
-    name: "Statistics"
+    name: "Statistics",
+    data(){
+      return{
+        title: 'Statistics'
+      }
+    }
   }
 </script>
 

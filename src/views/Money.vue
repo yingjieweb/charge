@@ -1,13 +1,24 @@
 <template>
-  <div>
-    money
-    <TabBar></TabBar>
-  </div>
+  <Layout>
+    <template v-slot:nav>
+      <div>
+        Money navigator
+      </div>
+    </template>
+    <template v-slot:content>
+      Money 页面
+    </template>
+  </Layout>
 </template>
 
 <script>
   export default {
-    name: "money"
+    name: "Money",
+    data() {
+      return {
+        title: 'Money'
+      }
+    }
   }
 </script>
 
