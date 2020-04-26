@@ -25,8 +25,9 @@
     height: 100vh;
   }
   .nav{
-    height: 32px;
-    line-height: 32px;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
     background-color: $main-color;
     color: white;
   }
