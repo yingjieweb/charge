@@ -22,6 +22,8 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "~@/assets/style/helper.scss";
+
   .tab-bar{
     display: flex;
     justify-content: space-around;
@@ -35,7 +37,7 @@
       padding: 2px 0;
     }
     .selected{
-      color: #00BFA6;
+      color: $main-color;
     }
   }
 </style>

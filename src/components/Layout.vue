@@ -17,8 +17,9 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "~@/assets/style/helper.scss";
+
   .layout{
-    border: 1px solid red;
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -26,8 +27,7 @@
   .nav{
     height: 32px;
     line-height: 32px;
-    background-color: #00BFA6;
-    border: 1px solid green;
+    background-color: $main-color;
     color: white;
   }
   .content{
