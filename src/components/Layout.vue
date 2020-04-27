@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <div class="nav">
-      <slot name="nav"></slot>
+      {{title}}
     </div>
     <div class="content">
       <slot name="content"></slot>
@@ -12,7 +12,8 @@
 
 <script lang="ts">
   export default {
-    name: "Layout"
+    name: "Layout",
+    props:['title']
   }
 </script>
 
@@ -25,6 +26,7 @@
     height: 100vh;
   }
   .nav{
+    @extend %outerShadow;
     height: 38px;
     line-height: 38px;
     text-align: center;

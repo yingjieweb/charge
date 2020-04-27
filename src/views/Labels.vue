@@ -1,10 +1,5 @@
 <template>
-  <Layout>
-    <template v-slot:nav>
-      <div>
-        Labels navigator
-      </div>
-    </template>
+  <Layout :title="'Labels navigator'">
     <template v-slot:content>
       Labels 页面
     </template>

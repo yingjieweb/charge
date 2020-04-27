@@ -1,10 +1,5 @@
 <template>
-  <Layout>
-    <template v-slot:nav>
-      <div>
-        Statistics navigator
-      </div>
-    </template>
+  <Layout :title="'Statistics navigator'">
     <template v-slot:content>
       Statistics 页面
     </template>

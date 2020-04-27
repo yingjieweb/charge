@@ -1,19 +1,22 @@
 <template>
-  <Layout>
-    <template v-slot:nav>
-      <div>
-        Money navigator
-      </div>
-    </template>
+  <Layout :title="'Money navigator'">
     <template v-slot:content>
-      Money 页面
+      <Tags></Tags>
+      <Notes></Notes>
+      <Types></Types>
+      <NumberPad></NumberPad>
     </template>
   </Layout>
 </template>
 
 <script lang="ts">
+  import Tags from "@/components/money/Tags.vue";
+  import Notes from "@/components/money/Notes.vue";
+  import Types from "@/components/money/Types.vue";
+  import NumberPad from "@/components/money/NumberPad.vue";
   export default {
     name: "Money",
+    components: {NumberPad, Types, Notes, Tags},
     data() {
       return {
         title: 'Money'
