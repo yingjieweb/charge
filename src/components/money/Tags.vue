@@ -1,24 +1,45 @@
 <template>
   <div class="tags">
     <ul class="current">
-      <li>衣</li>
-      <li>食</li>
-      <li>住</li>
-      <li>行</li>
+      <li v-for="(tag,index) in tags" :key="index" @click="selectedTag(index)" :class="{selected: index===currentIndex}">{{tag}}</li>
     </ul>
     <div class="new">
-      <button>新增标签</button>
+      <button @click="createTag">新增标签</button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-  export default {
-    name: 'Tags'
-  };
+  import Vue from 'vue'
+  import {Component, Prop} from "vue-property-decorator";
+
+  @Component
+  export default class Tags extends Vue{
+    @Prop(Array) readonly tags: string[] | undefined;
+    //selectedTags: string[] = [];
+    currentIndex = 0;
+
+    selectedTag(index: string){
+      //this.selectedTags.push(tag);
+      console.log(index);
+      this.currentIndex = parseInt(index);
+    }
+    createTag(){
+      const tagName = window.prompt('请输入新的标签名');
+      if (tagName === '') {
+        window.alert('标签名不能为空');
+      } else if (this.tags?.includes(tagName!)){
+        window.alert('标签名已存在');
+      }else if (this.tags) {
+        this.$emit('update:tags', [...this.tags, tagName]);
+      }
+    }
+  }
 </script>
 
 <style lang="scss" scoped>
+  @import "~@/assets/style/helper.scss";
+
   .tags {
     font-size: 14px;
     padding: 16px;
@@ -36,6 +57,10 @@
         padding: 0 16px;
         margin-right: 12px;
         margin-top: 4px;
+        &.selected {
+          background: $main-color;
+          color: white;
+        }
       }
     }
     > .new {
