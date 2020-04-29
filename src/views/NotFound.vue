@@ -1,50 +1,55 @@
 <template>
-  <div class="sorry">
-    <span id="tipNum">{{count}}</span>
+  <div class="notFound">
+    <div class="sorry">
+      <img src="../assets/img/sorry.jpg" alt="404">
+    </div>
+    <div class="tipNum"><span>{{count}}</span></div>
   </div>
 </template>
 
-<script>
-  export default {
-    name: "NotFound",
-    data() {
-      return {
-        targetUrl: "https://yingjieweb.github.io/navigator/dist/index.html",  //倒计时结束跳转页面
-        count: 9,
-      }
-    },
-    mounted() {
+<script lang="ts">
+  import Vue from 'vue'
+  import {Component} from "vue-property-decorator";
+
+  @Component
+  export default class NotFound extends Vue{
+    count = 9;
+    //targetUrl = "https://yingjieweb.github.io/navigator/dist/index.html";  //倒计时结束跳转页面
+    targetUrl = "http://localhost:8080/#/money";  //倒计时结束跳转页面
+    mounted(){
       this.load()
-    },
-    methods: {
-      load() {
-        setInterval(()=>{
-          if (this.count !== 0){
-            this.count --
-          }else {
-            window.location.href = this.targetUrl;
-            window.clearInterval(this.timeout);
-          }
-        },900)
-      }
+    }
+    load(){
+      const timeout = setInterval(()=>{
+        if (this.count !== 0){
+          this.count --;
+        }else {
+          window.location.href = this.targetUrl;
+          window.clearInterval(timeout);
+        }
+      },1000)
     }
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  .notFound{
+    overflow: hidden;
+  }
   .sorry {
-    height: 530px;
-    background-image: url(http://www.qijishow.com/img/sorry.jpg);
-    background-repeat: no-repeat;
-    background-position: 96px 84px;
-    width: 524px;
-    margin-right: auto;
-    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    /*background-image: url(http://www.qijishow.com/img/sorry.jpg);*/
+  }
+  .tipNum {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: Impact;
-    font-size: 400px;
+    font-size: 390px;
+    margin-top: -200px;
     color: #BDBDBD;
-    line-height: 460px;
-    padding-top: 338px;
-    padding-left: 332px;
   }
 </style>
