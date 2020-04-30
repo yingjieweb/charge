@@ -1,7 +1,7 @@
 <template>
   <Layout :title="'Money navigator'">
     <template v-slot:content>
-      <Tags></Tags>
+      <Tags :tags.sync="tags"></Tags>
       <Notes></Notes>
       <Types></Types>
       <NumberPad></NumberPad>
@@ -19,7 +19,8 @@
     components: {NumberPad, Types, Notes, Tags},
     data() {
       return {
-        title: 'Money'
+        title: 'Money',
+        tags: ['衣','食','住','行']
       }
     }
   }
