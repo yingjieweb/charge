@@ -42,7 +42,7 @@
 
   .tags {
     font-size: 14px;
-    padding: 16px;
+    padding: 16px 10px 16px 16px;
     height: calc(100vh - 537px);
     overflow: auto;
     > .current {
@@ -55,8 +55,8 @@
         border-radius: $h/2;
         background: #d9d9d9;
         padding: 0 16px;
-        margin-right: 12px;
-        margin-top: 4px;
+        margin-right: 10px;
+        margin-top: 6px;
         &.selected {
           background: $main-color;
           color: white;

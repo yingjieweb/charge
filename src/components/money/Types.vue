@@ -37,11 +37,12 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      position: relative;
+      /*position: relative;*/
       &.selected {
         color: white;
         background: $main-color;
       }
+      /*
       &.selected::after {
         content: '';
         position: absolute;
@@ -51,6 +52,7 @@
         height: 4px;
         background: $main-color;
       }
+      */
     }
   }
 </style>
