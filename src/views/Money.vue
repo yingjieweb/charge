@@ -1,7 +1,7 @@
 <template>
   <Layout :title="'Money navigator'">
     <template v-slot:content>
-      <Tags :tags.sync="tags"></Tags>
+      <Tags :tags.sync="tags" @update:selected="onUpdateTag"></Tags>
       <Notes></Notes>
       <Types></Types>
       <NumberPad></NumberPad>
@@ -23,8 +23,10 @@
   export default class Money extends Vue{
     title = 'Money';
     tags = ['衣','食','住','行'];
-    yyy(){
-      console.log(111)
+    defaultTag = '衣';
+    onUpdateTag(tag: string){
+      this.defaultTag = tag;
+      console.log(this.defaultTag)
     }
   }
 </script>

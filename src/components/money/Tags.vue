@@ -1,7 +1,7 @@
 <template>
   <div class="tags">
     <ul class="current">
-      <li v-for="(tag,index) in tags" :key="tag" @click="selectedTag(index)" :class="{selected: index===currentIndex}">{{tag}}</li>
+      <li v-for="(tag,index) in tags" :key="tag" @click="selectedTag(index,tag)" :class="{selected: index===currentTagIndex}">{{tag}}</li>
     </ul>
     <div class="new">
       <button @click="createTag">新增标签</button>
@@ -16,17 +16,15 @@
   @Component
   export default class Tags extends Vue{
     @Prop(Array) readonly tags: string[] | undefined;
-    //selectedTags: string[] = [];
-    currentIndex = 0;
+    currentTagIndex = 0;
 
-    selectedTag(index: string){
-      //this.selectedTags.push(tag);
-      console.log(index);
-      this.currentIndex = parseInt(index);
+    selectedTag(index: string, tag: string){
+      this.currentTagIndex = parseInt(index);
+      this.$emit('update:selected',tag)
     }
     createTag(){
       const tagName = window.prompt('请输入新的标签名');
-      if (tagName === '') {
+      if (tagName === '' || tagName === null) {
         window.alert('标签名不能为空');
       } else if (this.tags?.includes(tagName!)){
         window.alert('标签名已存在');
