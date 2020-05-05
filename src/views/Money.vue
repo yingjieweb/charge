@@ -1,10 +1,10 @@
 <template>
   <Layout :title="'Money navigator'">
     <template v-slot:content>
-      <Tags :tags.sync="tags" @update:tag="onUpdateTag"></Tags>
-      <Notes @update:note="onUpdateNote"></Notes>
-      <Types @update:type="onUpdateType"></Types>
-      <NumberPad @update:amount="onUpdateAmount"></NumberPad>
+      <Tags :tags.sync="tags" :defaultTag.sync="record.tag"></Tags>
+      <Notes :defaultNote.sync="record.note"></Notes>
+      <Types :defaultType.sync="record.type"></Types>
+      <NumberPad :defaultAmount.sync="record.amount"></NumberPad>{{record}}
     </template>
   </Layout>
 </template>
@@ -17,26 +17,20 @@
   import NumberPad from "@/components/money/NumberPad.vue";
   import {Component} from "vue-property-decorator";
 
+  type Record = {
+    tag: string;
+    note: string;
+    type: string;
+    amount: number;
+  }
+
   @Component({
     components: {NumberPad, Types, Notes, Tags}
   })
   export default class Money extends Vue{
     title = 'Money';
     tags = ['衣','食','住','行'];
-    defaultTag = '衣';
-    onUpdateTag(newTag: string){
-      this.defaultTag = newTag;
-      console.log(this.defaultTag)
-    }
-    onUpdateNote(note: string){
-      console.log(note)
-    }
-    onUpdateType(type: string){
-      console.log(type)
-    }
-    onUpdateAmount(amount: string){
-      console.log(amount)
-    }
+    record: Record = {tag: '衣', note: '', type: '-', amount: 0}
   }
 </script>
 

@@ -16,8 +16,10 @@
   @Component
   export default class Tags extends Vue{
     @Prop(Array) readonly tags: string[] | undefined;
+    @Prop(String) readonly defaultTag!: string;
+
     currentTagIndex = 0;
-    currentTagName = '衣';
+    currentTagName = this.defaultTag;
 
     selectedTag(index: string, tag: string){
       this.currentTagIndex = parseInt(index);
@@ -36,7 +38,7 @@
 
     @Watch('currentTagName')
     onTagChanged(newTag: string){
-      this.$emit('update:tag',newTag)
+      this.$emit('update:defaultTag',newTag);
     }
   }
 </script>
