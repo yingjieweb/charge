@@ -11,16 +11,17 @@
 
 <script lang="ts">
   import Vue from 'vue'
-  import {Component, Prop} from "vue-property-decorator";
+  import {Component, Prop, Watch} from "vue-property-decorator";
 
   @Component
   export default class Tags extends Vue{
     @Prop(Array) readonly tags: string[] | undefined;
     currentTagIndex = 0;
+    currentTagName = '衣';
 
     selectedTag(index: string, tag: string){
       this.currentTagIndex = parseInt(index);
-      this.$emit('update:selected',tag)
+      this.currentTagName = tag;
     }
     createTag(){
       const tagName = window.prompt('请输入新的标签名');
@@ -31,6 +32,11 @@
       }else if (this.tags) {
         this.$emit('update:tags', [...this.tags, tagName]);
       }
+    }
+
+    @Watch('currentTagName')
+    onTagChanged(newTag: string){
+      this.$emit('update:tag',newTag)
     }
   }
 </script>
