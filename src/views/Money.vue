@@ -24,12 +24,18 @@
     title = 'Money';
     tags = ['衣','食','住','行'];
     defaultTag = '衣';
-    onUpdateTag(tag: string){
-      this.defaultTag = tag;
+    onUpdateTag(newTag: string){
+      this.defaultTag = newTag;
       console.log(this.defaultTag)
     }
     onUpdateNote(note: string){
       console.log(note)
+    }
+    onUpdateType(type: string){
+      console.log(type)
+    }
+    onUpdateAmount(){
+      console.log(111)
     }
   }
 </script>
