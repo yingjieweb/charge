@@ -34,8 +34,8 @@
     onUpdateType(type: string){
       console.log(type)
     }
-    onUpdateAmount(){
-      console.log(111)
+    onUpdateAmount(amount: string){
+      console.log(amount)
     }
   }
 </script>

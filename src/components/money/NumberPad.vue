@@ -53,7 +53,7 @@
       this.output = '0';
     }
     finish(){
-      console.log(this.output);
+      this.$emit('update:amount', this.output)
     }
   }
 </script>
