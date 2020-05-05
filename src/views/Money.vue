@@ -1,10 +1,10 @@
 <template>
   <Layout :title="'Money navigator'">
     <template v-slot:content>
-      <Tags :tags.sync="tags" @update:selected="onUpdateTag"></Tags>
-      <Notes></Notes>
-      <Types></Types>
-      <NumberPad></NumberPad>
+      <Tags :tags.sync="tags" @update:tag="onUpdateTag"></Tags>
+      <Notes @update:note="onUpdateNote"></Notes>
+      <Types @update:type="onUpdateType"></Types>
+      <NumberPad @update:amount="onUpdateAmount"></NumberPad>
     </template>
   </Layout>
 </template>
@@ -27,6 +27,9 @@
     onUpdateTag(tag: string){
       this.defaultTag = tag;
       console.log(this.defaultTag)
+    }
+    onUpdateNote(note: string){
+      console.log(note)
     }
   }
 </script>
