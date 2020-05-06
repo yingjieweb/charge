@@ -55,7 +55,9 @@
       this.output = '0';
     }
     finish(){
-      this.$emit('update:defaultAmount', parseFloat(this.output))
+      this.$emit('update:defaultAmount', parseFloat(this.output));
+      this.$emit('submit');
+      this.output = '0';
     }
   }
 </script>
