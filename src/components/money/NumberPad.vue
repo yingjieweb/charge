@@ -55,9 +55,14 @@
       this.output = '0';
     }
     finish(){
-      this.$emit('update:defaultAmount', parseFloat(this.output));
-      this.$emit('submit');
-      this.output = '0';
+      if (this.output === '0'){
+        window.alert('请输入支出或收入的具体金额 !');
+      } else {
+        this.$emit('update:defaultAmount', parseFloat(this.output));
+        this.$emit('submit');
+        this.output = '0';
+        window.alert('您有一笔账单已被记录在册 !')
+      }
     }
   }
 </script>
