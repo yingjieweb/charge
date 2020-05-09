@@ -39,12 +39,16 @@
       deepRecord.createdTime = new Date();
       this.recordList.push(deepRecord);
 
-      console.log(this.recordList)
+      console.log(this.recordList);
     }
 
     @Watch('recordList')
     onRecordListChanged(){
       window.localStorage.setItem('recordList',JSON.stringify(this.recordList));
+    }
+    @Watch('tags',{ immediate: true, deep: true })
+    onTagsChanged(){
+      window.localStorage.setItem('tags',JSON.stringify(this.tags));
     }
   }
 </script>
