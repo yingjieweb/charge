@@ -30,7 +30,7 @@
   })
   export default class Money extends Vue{
     title = 'Money';
-    tags: string[] = JSON.parse(window.localStorage.getItem('tags') || "[]")  || ['衣','食','住','行'];
+    tags: string[] = JSON.parse(window.localStorage.getItem('tags') || "[]"); //页面第一次加载没有localstorage？
     record: Record = {tag: '衣', note: '', type: '-', amount: 0};
     recordList: Record[] = JSON.parse(window.localStorage.getItem('recordList') || '[]');
 
