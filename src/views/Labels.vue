@@ -2,13 +2,13 @@
   <Layout :title="'Labels navigator'">
     <template v-slot:content>
       <div class="tags">
-        <router-link class="tag" v-for="tag in tags" :key="tag" :to="`/labels/edit/${tag.id}`">
+        <router-link class="tag" v-for="tag in tags" :key="tag" :to="`/labels/edit/${tag}`">
           <span>{{tag}}</span>
           <Icon name="right"/>
         </router-link>
       </div>
       <div class="createTag-wrapper">
-        <Button class="createTag">
+        <Button class="createTag" @click="createTag">
           新建标签
         </Button>
       </div>
@@ -23,6 +23,17 @@
   @Component
   export default class Labels extends Vue{
     tags = JSON.parse(window.localStorage.getItem('tags')!);
+    createTag(){
+      const tagName = window.prompt('请输入新的标签名');
+      if (tagName === '' || tagName === null) {
+        window.alert('标签名不能为空');
+      } else if (this.tags?.includes(tagName!)){
+        window.alert('标签名已存在');
+      }else if (this.tags) {
+        this.tags.push(tagName);
+        window.localStorage.setItem('tags',JSON.stringify(this.tags));
+      }
+    }
   }
 </script>
 
