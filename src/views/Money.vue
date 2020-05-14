@@ -2,7 +2,7 @@
   <Layout :title="'Money navigator'">
     <template v-slot:content>
       <Tags :tags.sync="tags" :defaultTag.sync="record.tag"></Tags>
-      <Notes :defaultNote.sync="record.note"></Notes>
+      <Notes :defaultNote.sync="record.note" field-name="备注" placeholder="请输入账单备注"></Notes>
       <Types :defaultType.sync="record.type"></Types>
       <NumberPad :defaultAmount.sync="record.amount" @submit="saveRecord"></NumberPad>
     </template>
@@ -29,7 +29,6 @@
     components: {NumberPad, Types, Notes, Tags}
   })
   export default class Money extends Vue{
-    title = 'Money';
     tags: string[] = JSON.parse(window.localStorage.getItem('tags') || "[]"); //页面第一次加载没有localstorage？
     record: Record = {tag: '衣', note: '', type: '-', amount: 0};
     recordList: Record[] = JSON.parse(window.localStorage.getItem('recordList') || '[]');
@@ -39,7 +38,7 @@
       deepRecord.createdTime = new Date();
       this.recordList.push(deepRecord);
 
-      console.log(this.recordList);
+      this.record.note = '';
     }
 
     @Watch('recordList')
