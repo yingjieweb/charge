@@ -7,10 +7,8 @@
           <Icon name="right"/>
         </router-link>
       </div>
-      <div class="createTag-wrapper">
-        <Button class="createTag" @click="createTag">
-          新建标签
-        </Button>
+      <div class="button-wrapper">
+        <Button @click="createTag">新建标签</Button>
       </div>
     </template>
   </Layout>
@@ -47,6 +45,7 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #e6e6e6;
+
       svg {
         width: 18px;
         height: 18px;
@@ -55,17 +54,9 @@
       }
     }
   }
-  .createTag {
-    color: white;
-    border: none;
-    background: #767676;
-    border-radius: 4px;
-    height: 40px;
-    padding: 0 16px;
-    &-wrapper {
-      text-align: center;
-      padding: 16px;
-      margin-top: 28px;
-    }
+  .button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
   }
 </style>

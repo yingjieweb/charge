@@ -15,16 +15,11 @@
 
 <style lang="scss" scoped>
   .button {
-    background: #767676;
     color: white;
-    border-radius: 4px;
+    background: #767676;
     border: none;
+    border-radius: 4px;
     height: 40px;
     padding: 0 16px;
-    &-wrapper {
-      text-align: center;
-      padding: 16px;
-      margin-top: 44-16px;
-    }
   }
 </style>
