@@ -30,9 +30,15 @@
   })
   export default class Money extends Vue{
     tags: string[] = JSON.parse(window.localStorage.getItem('tags') || "[]"); //页面第一次加载没有localstorage？
-    record: Record = {tag: '衣', note: '', type: '-', amount: 0};
+    record: Record = {tag: '', note: '', type: '-', amount: 0};
     recordList: Record[] = JSON.parse(window.localStorage.getItem('recordList') || '[]');
 
+    created(){
+      if (window.localStorage.getItem('tags') === '[]'){
+        this.tags = ['餐饮', '购物', '交通', '娱乐'];
+        this.record.tag = '餐饮';
+      }
+    }
     saveRecord(){
       const deepRecord = JSON.parse(JSON.stringify(this.record));
       deepRecord.createdTime = new Date();
