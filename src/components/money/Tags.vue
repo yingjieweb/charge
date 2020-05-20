@@ -4,7 +4,7 @@
       <li v-for="(tag,index) in tags" :key="tag" @click="selectedTag(index,tag)" :class="{selected: index===currentTagIndex}">{{tag}}</li>
     </ul>
     <div class="new">
-      <button @click="createTag">新增标签</button>
+      <button @click="createTag">添加标签</button>
     </div>
   </div>
 </template>

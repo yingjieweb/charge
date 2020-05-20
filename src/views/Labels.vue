@@ -1,5 +1,5 @@
 <template>
-  <Layout :title="'Labels navigator'">
+  <Layout :title="'标签'">
     <template v-slot:content>
       <div class="tags">
         <router-link class="tag" v-for="tag in tags" :key="tag" :to="`/labels/edit/${tag}`">

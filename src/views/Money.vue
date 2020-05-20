@@ -1,5 +1,5 @@
 <template>
-  <Layout :title="'Money navigator'">
+  <Layout :title="'记账'">
     <template v-slot:content>
       <Tags :tags.sync="tags" :defaultTag.sync="record.tag"></Tags>
       <Notes :defaultNote.sync="record.note" field-name="备注" placeholder="请输入账单备注"></Notes>

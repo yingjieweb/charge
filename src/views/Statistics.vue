@@ -1,5 +1,5 @@
 <template>
-  <Layout :title="'Statistics navigator'">
+  <Layout :title="'统计'">
     <template v-slot:content>
       Statistics 页面
     </template>
