@@ -8,6 +8,9 @@ export default new Vuex.Store({
     isFirstLoad: true
   },
   mutations: {
+    changeLoadState(state){
+      state.isFirstLoad = false;
+    }
   },
   actions: {
   },

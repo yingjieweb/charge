@@ -37,7 +37,7 @@
       if (window.localStorage.getItem('tags') === '[]' && this.$store.state.isFirstLoad){
         this.tags = ['餐饮', '购物', '交通', '娱乐'];
         this.record.tag = '餐饮';
-        this.$store.state.isFirstLoad = false;
+        this.$store.commit('changeLoadState');
       }
     }
     saveRecord(){
