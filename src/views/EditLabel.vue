@@ -4,7 +4,6 @@
       <Icon name="left" @click.native="goBack"></Icon>
     </template>
     <template v-slot:content>
-      <div style="height: 10px"></div>
       <Notes :defaultNote.sync="note" field-name="标签名" placeholder="请输入新的标签名"></Notes>
       <div class="button-wrapper">
         <Button @click="saveNote">保存</Button>
