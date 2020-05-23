@@ -3,6 +3,7 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router' //默认引入router/index.ts
 import store from './store'
+
 import TabBar from '@/components/TabBar.vue'
 import Layout from '@/components/Layout.vue'
 import Icon from '@/components/Icon.vue'
