@@ -60,7 +60,7 @@
         line-height: $h;
         border-radius: $h/2;
         background: #d9d9d9;
-        padding: 0 16px;
+        padding: 0 15px;
         margin-right: 10px;
         margin-top: 6px;
         &.selected {

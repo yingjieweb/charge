@@ -35,7 +35,7 @@
 
     created(){
       if (window.localStorage.getItem('tags') === '[]' && this.$store.state.isFirstLoad){
-        this.tags = ['餐饮', '购物', '交通', '娱乐'];
+        this.tags = ['餐饮', '购物', '交通', '娱乐', '工资'];
         this.record.tag = '餐饮';
         this.$store.commit('changeLoadState');
       }
