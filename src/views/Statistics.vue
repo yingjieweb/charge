@@ -4,17 +4,17 @@
       <div class="overview">
         <div class="totalSection">
           <div class="totalAmount">
-            <div class="totalNumber">{{balance.toFixed(2)}}</div>
+            <div class="totalNumber">￥{{balance.toFixed(2)}}</div>
             <div class="totalType">7月结余</div>
           </div>
         </div>
         <div class="detailSection">
           <div class="detail">
-            <div class="detailNumber">{{spending.toFixed(2)}}</div>
+            <div class="detailNumber">￥{{spendingNumber.toFixed(2)}}</div>
             <div class="detailType">7月支出</div>
           </div>
           <div class="detail">
-            <div class="detailNumber">{{income.toFixed(2)}}</div>
+            <div class="detailNumber">￥{{incomeNumber.toFixed(2)}}</div>
             <div class="detailType">7月收入</div>
           </div>
         </div>
@@ -24,6 +24,9 @@
       <Types :defaultType.sync="type"></Types>
       <LineChart v-if="type === '+'"></LineChart>
       <LineChart v-else>111</LineChart>
+      {{spending}}
+      <hr>
+      {{income}}
     </template>
   </Layout>
 </template>
@@ -44,7 +47,10 @@
         return item.type === '-';
       }).map((item: Record<string, string>) => {
         return Number(item.amount);
-      }).reduce((sum: number,item: number) => {
+      })
+    }
+    get spendingNumber(){
+      return this.spending.reduce((sum: number,item: number) => {
         return sum += item;
       },0)
     }
@@ -53,12 +59,15 @@
         return item.type === '+';
       }).map((item: Record<string, string>) => {
         return Number(item.amount);
-      }).reduce((sum: number,item: number) => {
+      })
+    }
+    get incomeNumber(){
+      return this.income.reduce((sum: number,item: number) => {
         return sum += item;
       },0)
     }
     get balance(){
-      return this.income - this.spending;
+      return this.incomeNumber - this.spendingNumber;
     }
   }
 </script>

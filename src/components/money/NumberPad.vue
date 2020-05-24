@@ -1,6 +1,6 @@
 <template>
   <div class="numberPad">
-    <div class="output">{{output}}</div>
+    <div class="output">{{output}}￥</div>
     <div class="buttons">
       <button @click="inputNumber">1</button>
       <button @click="inputNumber">2</button>
