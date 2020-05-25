@@ -38,6 +38,8 @@
         this.tags = ['餐饮', '购物', '交通', '娱乐', '工资'];
         this.record.tag = '餐饮';
         this.$store.commit('changeLoadState');
+      }else {
+        this.record.tag = this.tags[0];
       }
     }
     saveRecord(){
