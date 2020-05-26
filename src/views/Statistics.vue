@@ -24,8 +24,7 @@
 
       <Types :defaultType.sync="type"></Types>
 
-      <LineChart v-if="type === '-'"></LineChart>
-      <LineChart v-else></LineChart>
+      <LineChart :dataSource="type === '-' ? spendingLineChartData : incomeLineChartData"></LineChart>
     </template>
   </Layout>
 </template>
@@ -34,6 +33,7 @@
   import Vue from 'vue'
   import {Component} from "vue-property-decorator";
   import Types from "@/components/money/Types.vue";
+  import dayjs from "dayjs";
 
   @Component({
     components: {Types}
@@ -42,11 +42,17 @@
     type = '-';
     incomePieChartArray = [{name: '', value: ''}];
     spendingPieChartArray = [{name: '', value: ''}];
+    incomeLineChartArray = [{createdDate: '', value: 0}];
+    spendingLineChartArray = [{createdDate: '', value: 0}];
+    incomeLineChartData =  ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0']
+    spendingLineChartData =  ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0']
     recordList = JSON.parse(window.localStorage.getItem('recordList') || '[]');
 
     created() {
-      this.getSpendingData();
-      this.getIncomeData();
+      this.getSpendingPieData();
+      this.getIncomePieData();
+      this.getSpendingLineData();
+      this.getIncomeLineData();
     }
 
     get spendingArray() {
@@ -81,7 +87,7 @@
       return this.incomeNumber - this.spendingNumber;
     }
 
-    getSpendingData() {
+    getSpendingPieData() {
       this.spendingArray.forEach((item: Record<string, string>) => {
         const obj = {name: '', value: ''};
         obj.name = item.tag;
@@ -89,12 +95,12 @@
         this.spendingPieChartArray.push(obj);
       })
       this.spendingPieChartArray.splice(0, 1);
-      if (this.spendingPieChartArray.length === 0){
+      if (this.spendingPieChartArray.length === 0) {
         this.spendingPieChartArray.push({name: '支出', value: '0'});
       }
     }
 
-    getIncomeData() {
+    getIncomePieData() {
       this.incomeArray.forEach((item: Record<string, string>) => {
         const obj = {name: '', value: ''};
         obj.name = item.tag;
@@ -102,8 +108,46 @@
         this.incomePieChartArray.push(obj);
       })
       this.incomePieChartArray.splice(0, 1);
-      if (this.incomePieChartArray.length === 0){
+      if (this.incomePieChartArray.length === 0) {
         this.incomePieChartArray.push({name: '收入', value: '0'});
+      }
+    }
+
+    getSpendingLineData() {
+      if (this.spendingArray.length > 0){
+        for (let i = 0; i < this.spendingArray.length; i++) {
+          if (this.spendingLineChartArray[this.spendingLineChartArray.length - 1].createdDate === dayjs(this.spendingArray[i].createdTime).date().toString()) {
+            this.spendingLineChartArray[this.spendingLineChartArray.length - 1].value += this.spendingArray[i].amount;
+          } else {
+            const obj = {createdDate: '', value: 0};
+            obj.createdDate = dayjs(this.spendingArray[i].createdTime).date().toString();
+            obj.value = this.spendingArray[i].amount;
+            this.spendingLineChartArray.push(obj);
+          }
+        }
+
+        this.spendingLineChartArray.forEach((item) => {
+          this.spendingLineChartData[Number(item.createdDate)] = item.value.toString();
+        })
+      }
+    }
+
+    getIncomeLineData() {
+      if (this.incomeArray.length > 0){
+        for (let i = 0; i < this.incomeArray.length; i++) {
+          if (this.incomeLineChartArray[this.incomeLineChartArray.length - 1].createdDate === dayjs(this.incomeArray[i].createdTime).date().toString()) {
+            this.incomeLineChartArray[this.incomeLineChartArray.length - 1].value += this.incomeArray[i].amount;
+          } else {
+            const obj = {createdDate: '', value: 0};
+            obj.createdDate = dayjs(this.incomeArray[i].createdTime).date().toString();
+            obj.value = this.incomeArray[i].amount;
+            this.incomeLineChartArray.push(obj);
+          }
+        }
+
+        this.incomeLineChartArray.forEach((item) => {
+          this.incomeLineChartData[Number(item.createdDate)] = item.value.toString();
+        })
       }
     }
   }

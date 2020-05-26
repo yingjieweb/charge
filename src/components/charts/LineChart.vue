@@ -7,10 +7,12 @@
 <script lang="ts">
   import Vue from 'vue'
   import echarts  from 'echarts'
-  import {Component} from "vue-property-decorator";
+  import {Component, Prop, Watch} from "vue-property-decorator";
 
   @Component
   export default class LineChart extends Vue{
+    @Prop() readonly dataSource!: [];
+
     width = 0;
     height = 0;
 
@@ -28,22 +30,34 @@
       Chart.setOption({
         xAxis: {
           type: 'category',
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+          data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31']
         },
         yAxis: {
           type: 'value'
         },
+        tooltip: {
+          show: true,
+          formatter: '{b}日: {c}￥'
+        },
         series: [{
-          data: [820, 932, 901, 934, 1290, 1330, 1320],
-          type: 'line'
+          type: 'line',
+          data: [...this.dataSource]
+        }]
+      })
+    }
+
+    @Watch('dataSource')
+    onDataSourceChanged() {
+      const Chart = echarts.init(this.$refs.lineChart as HTMLCanvasElement);
+      Chart.setOption({
+        series: [{
+          data: [
+            ...this.dataSource
+          ]
         }]
       })
     }
   }
-
-  /*export default {
-    name: "LineChart"
-  }*/
 </script>
 
 <style lang="scss" scoped>
