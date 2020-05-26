@@ -15,28 +15,6 @@
 
     width = 0;
     height = 0;
-    option = {
-      tooltip: {
-        trigger: 'item',
-        formatter: '{b}: {c}￥ ({d}%)'
-      },
-      series: [
-        {
-          type: 'pie',
-          radius: ['50%', '70%'],
-          avoidLabelOverlap: false,
-          label: {
-            normal: {
-              position: 'outer',
-              show: true
-            }
-          },
-          data: [
-            ...this.dataSource
-          ]
-        }
-      ]
-    };
 
     created() {
       this.width = document.documentElement.clientWidth;
@@ -49,7 +27,28 @@
 
     init() {
       const Chart = echarts.init(this.$refs.pieChart as HTMLCanvasElement);
-      Chart.setOption(this.option)
+      Chart.setOption({
+        tooltip: {
+          trigger: 'item',
+          formatter: '{b}: {c}￥ ({d}%)'
+        },
+        series: [
+          {
+            type: 'pie',
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+              normal: {
+                position: 'outer',
+                show: true
+              }
+            },
+            data: [
+              ...this.dataSource
+            ]
+          }
+        ]
+      })
     }
 
     @Watch('dataSource')
