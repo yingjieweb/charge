@@ -1,6 +1,9 @@
 const path = require('path');  //使用require报错：可改.eslintrc.js配置、可改成import、可写 eslint ignore注释
 
 module.exports = {
+  publicPath: process.env.NODE_ENV === 'production'
+      ? '/charge-website/'
+      : '/',
   lintOnSave: false,
   chainWebpack: config =>{
     const dir = path.resolve(__dirname, 'src/assets/icons')
