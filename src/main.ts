@@ -14,9 +14,9 @@ import PieChart from "@/components/charts/PieChart.vue"
 
 Vue.config.productionTip = false
 
-Vue.component('TabBar',TabBar)  //全局TabBar
-Vue.component('Layout',Layout)  //全局Layout
-Vue.component('Icon',Icon)  //全局Icon
+Vue.component('TabBar', TabBar)  //全局TabBar
+Vue.component('Layout', Layout)  //全局Layout
+Vue.component('Icon', Icon)  //全局Icon
 Vue.component('Button', Button) //全局按钮
 Vue.component('BarChart', BarChart) //条形图
 Vue.component('LineChart', LineChart) //折线图
@@ -28,8 +28,20 @@ new Vue({
   render: h => h(App)
 }).$mount('#app')
 
-window. onload=function(){
-  setTimeout(function(){
-    window. scrollTo(0,200);
+window.onload = function () {
+  setTimeout(function () {
+    window.scrollTo(0, 200);
   }, 0);
 };
+
+if (document.documentElement.clientWidth > 500) {
+  window.alert('请使用手机打开本页面，以保证浏览效果!');
+  const img = document.createElement('img');
+  img.src = '/qrcode.png';
+  img.style.position = 'fixed';
+  img.style.left = '50%';
+  img.style.top = '50%';
+  img.style.transform = 'translate(-50%,-50%)';
+  img.style.boxShadow = '0 0 10px rgba(0,0,0,0.25)';
+  document.body.appendChild(img);
+}
