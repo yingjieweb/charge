@@ -26,6 +26,10 @@
     display: flex;
     flex-direction: column;
     /*height: 100vh;*/
+    height: 667px;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
   }
   .nav{
     @extend %outerShadow;

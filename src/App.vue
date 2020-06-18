@@ -25,7 +25,7 @@
     font-size: 16px;
     color: #333333;
 
-    width: 375px;
-    height: 667px;
+    max-width: 375px;
+    max-height: 667px;
   }
 </style>
