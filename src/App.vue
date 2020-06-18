@@ -11,9 +11,10 @@
   body {
     background-color: #F9F1E0;
   }
-  @media (min-width: 500px) {
+  @media (min-width: 420px) {
     #app {
-      margin: 80px auto;
+      margin: 0 auto;
+      max-width: 420px;
     }
   }
 
@@ -24,8 +25,5 @@
     font-family: $font-hei;
     font-size: 16px;
     color: #333333;
-
-    max-width: 375px;
-    max-height: 667px;
   }
 </style>

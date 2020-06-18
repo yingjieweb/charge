@@ -35,14 +35,16 @@ window.onload = function () {
 };
 
 //监测手机端 - 展示二维码
-// if (document.documentElement.clientWidth > 500) {
-//   window.alert('请使用手机打开本页面，以保证浏览效果!');
-//   const img = document.createElement('img');
-//   img.src = './qrcode.png';
-//   img.style.position = 'fixed';
-//   img.style.left = '50%';
-//   img.style.top = '50%';
-//   img.style.transform = 'translate(-50%,-50%)';
-//   img.style.boxShadow = '0 0 10px rgba(0,0,0,0.25)';
-//   document.body.appendChild(img);
-// }
+if (document.documentElement.clientWidth > 500) {
+  window.alert('该应用主要面向移动端用户，推荐您使用手机扫描内部二维码的方式打开，以保证浏览效果！ ^ ~ ^\n\n' +
+      ' 如果您是开发人员，可通过控制台调试的方式进行查看，该应用同时适配多种类型的手机设备！ ^ ~ ^');
+  const img = document.createElement('img');
+  img.src = './qrcode.png';
+  img.style.position = 'fixed';
+  img.style.left = '65%';
+  img.style.top = '50%';
+  img.style.zIndex = '1';
+  img.style.transform = 'translate(-50%,-50%)';
+  img.style.boxShadow = '0 0 10px rgba(0,0,0,0.25)';
+  document.body.appendChild(img);
+}
