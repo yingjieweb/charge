@@ -63,6 +63,6 @@
 
 <style lang="scss" scoped>
   .lineChart {
-    height: calc((667px - 264px) / 2);
+    height: calc((100vh - 264px) / 2);
   }
 </style>

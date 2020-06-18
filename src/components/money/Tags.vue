@@ -49,7 +49,7 @@
   .tags {
     font-size: 14px;
     padding: 16px 10px 16px 16px;
-    height: calc(667px - 481px);
+    height: calc(100vh - 481px);
     overflow: auto;
     > .current {
       display: flex;
