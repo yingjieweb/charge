@@ -13,13 +13,13 @@
   export default class PieChart extends Vue {
     @Prop() readonly dataSource!: [];
 
-    width = 0;
-    height = 0;
+    // width = 0;
+    // height = 0;
 
-    created() {
-      this.width = document.documentElement.clientWidth;
-      this.height = document.documentElement.clientWidth * 0.54;
-    }
+    // created() {
+    //   this.width = document.documentElement.clientWidth;
+    //   this.height = document.documentElement.clientWidth * 0.54;
+    // }
 
     mounted() {
       this.init();
@@ -67,7 +67,6 @@
 
 <style lang="scss" scoped>
   .pieChart {
-    width: 100vw;
-    height: calc((100vh - 264px) / 2);
+    height: calc((667px - 264px) / 2);
   }
 </style>

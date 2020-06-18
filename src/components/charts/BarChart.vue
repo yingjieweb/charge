@@ -1,5 +1,5 @@
 <template>
-  <div class="barChart" :style="{width: `${width}px`, height: `${height}px`}">
+  <div class="barChart">
     <div ref="barChart" style="width: 100%; height: 100%;"></div>
   </div>
 </template>
@@ -11,13 +11,14 @@
 
   @Component
   export default class Barchart extends Vue{
-    width = 0;
-    height = 0;
+    // width = 0;
+    // height = 0;
 
-    created(){
-      this.width = document.documentElement.clientWidth;
-      this.height = document.documentElement.clientWidth * 0.7;
-    }
+    // created(){
+    //   this.width = document.documentElement.clientWidth;
+    //   this.height = document.documentElement.clientWidth * 0.7;
+    // }
+
     mounted(){
       this.init();
     }

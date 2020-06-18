@@ -1,5 +1,5 @@
 <template>
-  <div class="lineChart" :style="{width: `${width}px`, height: `${height}px`}">
+  <div class="lineChart">
     <div ref="lineChart" style="width: 100%; height: 100%;"></div>
   </div>
 </template>
@@ -13,14 +13,15 @@
   export default class LineChart extends Vue{
     @Prop() readonly dataSource!: [];
 
-    width = 0;
-    height = 0;
+    // width = 0;
+    // height = 0;
 
-    created(){
-      this.width = document.documentElement.clientWidth;
-      //this.height = document.documentElement.clientWidth * 0.6 ;
-      this.height = document.documentElement.clientWidth * 0.6 ;
-    }
+    // created(){
+    //   this.width = document.documentElement.clientWidth;
+    //   //this.height = document.documentElement.clientWidth * 0.6 ;
+    //   this.height = document.documentElement.clientWidth * 0.6 ;
+    // }
+
     mounted(){
       this.init();
     }
@@ -61,5 +62,7 @@
 </script>
 
 <style lang="scss" scoped>
-
+  .lineChart {
+    height: calc((667px - 264px) / 2);
+  }
 </style>
