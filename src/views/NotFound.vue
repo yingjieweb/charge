@@ -1,7 +1,7 @@
 <template>
   <div class="notFound">
     <div class="sorry">
-      <img src="../assets/img/sorry.jpg" alt="404">
+      <img src="../assets/images/sorry.jpg" alt="404">
     </div>
     <div class="tipNum"><span>{{count}}</span></div>
   </div>

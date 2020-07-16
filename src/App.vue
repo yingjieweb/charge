@@ -5,8 +5,8 @@
 </template>
 
 <style lang="scss">
-  @import "~@/assets/style/reset.scss";
-  @import "~@/assets/style/helper.scss";
+  @import "~@/assets/styles/reset.scss";
+  @import "~@/assets/styles/helper.scss";
 
   body {
     background-color: #F9F1E0;

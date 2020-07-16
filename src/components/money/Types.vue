@@ -31,7 +31,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "~@/assets/style/helper.scss";
+  @import "~@/assets/styles/helper.scss";
 
   .types {
     background: #c4c4c4;

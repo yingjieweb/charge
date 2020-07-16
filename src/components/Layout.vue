@@ -20,7 +20,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "~@/assets/style/helper.scss";
+  @import "~@/assets/styles/helper.scss";
 
   .layout{
     display: flex;
