@@ -14,8 +14,7 @@
   @Component
   export default class NotFound extends Vue{
     count = 9;
-    //targetUrl = "https://yingjieweb.github.io/navigator/dist/index.html";  //倒计时结束跳转页面
-    targetUrl = "http://localhost:8080/#/money";  //倒计时结束跳转页面
+    targetUrl = "http://yingjiesongi.gitee.io/charge/#/money";  //倒计时结束跳转页面
     mounted(){
       this.load()
     }
