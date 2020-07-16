@@ -14,7 +14,6 @@
   @Component
   export default class NotFound extends Vue{
     count = 9;
-    targetUrl = "http://yingjiesongi.gitee.io/charge/#/money";  //倒计时结束跳转页面
     mounted(){
       this.load()
     }
@@ -23,7 +22,7 @@
         if (this.count !== 0){
           this.count --;
         }else {
-          window.location.href = this.targetUrl;
+          this.$router.push('/money');
           window.clearInterval(timeout);
         }
       },1000)
