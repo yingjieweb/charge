@@ -36,6 +36,12 @@
         yAxis: {
           type: 'value'
         },
+        grid: {
+          top: "15%",
+          right: "6%",
+          bottom: "15%",
+          left: "12%"
+        },
         tooltip: {
           show: true,
           formatter: '{b}日: {c}￥'
