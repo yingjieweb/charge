@@ -1,72 +1,69 @@
 <template>
-  <div class="pieChart">
+  <div class="pie-chart">
     <div ref="pieChart" style="width: 100%; height: 100%;"></div>
   </div>
 </template>
 
 <script lang="ts">
   import Vue from 'vue';
-  import echarts from 'echarts'
+  import * as echarts from 'echarts';
   import {Component, Prop, Watch} from "vue-property-decorator";
 
   @Component
   export default class PieChart extends Vue {
     @Prop() readonly dataSource!: [];
 
-    // width = 0;
-    // height = 0;
-
-    // created() {
-    //   this.width = document.documentElement.clientWidth;
-    //   this.height = document.documentElement.clientWidth * 0.54;
-    // }
-
-    mounted() {
-      this.init();
-    }
-
-    init() {
-      const Chart = echarts.init(this.$refs.pieChart as HTMLCanvasElement);
-      Chart.setOption({
-        tooltip: {
-          trigger: 'item',
-          formatter: '{b}: {c}￥ ({d}%)'
-        },
-        series: [
-          {
-            type: 'pie',
-            radius: ['50%', '70%'],
-            avoidLabelOverlap: false,
-            label: {
-              normal: {
-                position: 'outer',
-                show: true
-              }
-            },
-            data: [
-              ...this.dataSource
-            ]
-          }
-        ]
-      })
-    }
-
     @Watch('dataSource')
     onDataSourceChanged() {
       const Chart = echarts.init(this.$refs.pieChart as HTMLCanvasElement);
       Chart.setOption({
         series: [{
-          data: [
-            ...this.dataSource
-          ]
+          data: this.dataSource
         }]
+      })
+    }
+
+    mounted() {
+      const Chart = echarts.init(this.$refs.pieChart as HTMLCanvasElement);
+      Chart.setOption({
+        tooltip: {
+          trigger: 'item',
+          triggerOn: 'click',
+          showContent: true,
+        },
+        series: [
+          {
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+              borderRadius: 10,
+              borderColor: '#fff',
+              borderWidth: 2
+            },
+            label: {
+              show: true,
+              position: 'outside'
+            },
+            emphasis: {
+              label: {
+                show: true,
+                fontWeight: 'bold'
+              }
+            },
+            labelLine: {
+              show: true
+            },
+            data: this.dataSource
+          }
+        ]
       })
     }
   }
 </script>
 
 <style lang="scss" scoped>
-  .pieChart {
+  .pie-chart {
     height: calc((100vh - 264px) / 2);
   }
 </style>
