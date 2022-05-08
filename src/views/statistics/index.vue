@@ -32,11 +32,17 @@
 <script lang="ts">
   import Vue from 'vue'
   import {Component} from "vue-property-decorator";
-  import Types from "@/components/money/Types.vue";
+  import LineChart from "@/views/statistics/components/LineChart.vue"
+  import Types from "@/views/money/components/Types.vue";
+  import PieChart from "@/views/statistics/components/PieChart.vue"
   import dayjs from "dayjs";
 
   @Component({
-    components: {Types}
+    components: {
+      LineChart,
+      Types,
+      PieChart
+    }
   })
   export default class Statistics extends Vue {
     type = '-';

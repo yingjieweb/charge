@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import VueRouter, {RouteConfig} from 'vue-router'
-import Money from '@/views/Money.vue'
-import Labels from '@/views/Labels.vue'
-import Statistics from '@/views/Statistics.vue'
+import Money from '@/views/money/index.vue'
+import Labels from '@/views/labels/index.vue'
+import Statistics from '@/views/statistics/index.vue'
 import NotFound from '@/views/NotFound.vue'
-import EditLabel from "@/views/EditLabel.vue";
+import EditLabel from "@/views/labels/detail.vue";
 
 Vue.use(VueRouter)
 

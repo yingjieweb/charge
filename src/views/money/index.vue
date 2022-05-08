@@ -11,10 +11,10 @@
 
 <script lang="ts">
   import Vue from 'vue'
-  import Tags from "@/components/money/Tags.vue";
-  import Notes from "@/components/money/Notes.vue";
-  import Types from "@/components/money/Types.vue";
-  import NumberPad from "@/components/money/NumberPad.vue";
+  import Tags from "@/views/money/components/Tags.vue";
+  import Notes from "@/views/money/components/Notes.vue";
+  import Types from "@/views/money/components/Types.vue";
+  import NumberPad from "@/views/money/components/NumberPad.vue";
   import {Component, Watch} from "vue-property-decorator";
 
   type Record = {

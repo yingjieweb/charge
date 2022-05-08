@@ -45,7 +45,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Impact;
     font-size: 390px;
     margin-top: -200px;
     color: #BDBDBD;
